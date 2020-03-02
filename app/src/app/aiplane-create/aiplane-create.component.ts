@@ -23,7 +23,6 @@ export class aiplaneCreateComponent implements OnInit {
   }
 
   submitForm() {
-    console.log("teste");
     this.apiService.createItem(this.data).subscribe((response) => {
       this.router.navigate(['list']);
     });

@@ -41,8 +41,12 @@ export class ApiService {
 
   // Create a new item
   createItem(item): Observable<aiplane> {
+    item.id = 0;
+    item.quantidadePassageiros = parseInt(item.quantidadePassageiros);
+    item.dataRegistro = new Date;
+    console.log(item);
     return this.http
-      .post<aiplane>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .post<aiplane>(this.base_path, item, this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -71,6 +75,7 @@ export class ApiService {
 
   // Update item by id
   updateItem(id, item): Observable<aiplane> {
+    item.quantidadePassageiros = parseInt(item.quantidadePassageiros);
     return this.http
       .put<aiplane>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
