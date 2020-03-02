@@ -1,0 +1,76 @@
+
+<div class="container">
+
+    <h1>Template-Driven Form</h1>
+    <form #airplaneForm="ngForm" appIdentityRevealed>
+      <div [hidden]="airplaneForm.submitted">
+
+        <div class="form-group">
+          <label for="codigo">Code</label>
+          <input id="codigo" name="codigo" class="form-control"
+                required minlength="1" 
+                [(ngModel)]="hero.codigo" #codigo="ngModel" >
+
+          <div *ngIf="codigo.invalid && (codigo.dirty || codigo.touched)"
+              class="alert alert-danger">
+
+            <div *ngIf="codigo.errors.required">
+              Code is required.
+            </div>
+            <div *ngIf="codigo.errors.minlength">
+              Code must be at least 1 characters long.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="modelo">Model</label>
+          <input id="modelo" name="modelo" class="form-control"
+                required minlength="1" 
+                [(ngModel)]="hero.modelo" #modelo="ngModel" >
+
+          <div *ngIf="modelo.invalid && (modelo.dirty || modelo.touched)"
+              class="alert alert-danger">
+
+            <div *ngIf="modelo.errors.required">
+              Model is required.
+            </div>
+            <div *ngIf="modelo.errors.minlength">
+              Model must be at least 1 characters long.
+            </div>
+
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="quantidadePassageiros">Number of passengers</label>
+          <input id="quantidadePassageiros" name="quantidadePassageiros" class="form-control"
+                required minlength="1" ngModel pattern="[0-9]*"
+                [(ngModel)]="hero.quantidadePassageiros" #quantidadePassageiros="ngModel" >
+
+          <div *ngIf="quantidadePassageiros.invalid && (quantidadePassageiros.dirty || quantidadePassageiros.touched)"
+              class="alert alert-danger">
+
+            <div *ngIf="quantidadePassageiros.errors.required">
+              Number of passengers is required.
+            </div>
+            <div *ngIf="quantidadePassageiros.errors.minlength">
+              Number of passengers must be at least 1 characters long.
+            </div>
+            <div *ngIf="quantidadePassageiros.errors?.pattern">
+              User name not valid.
+            </div> 
+
+          </div>
+        </div>
+  
+  
+        <button type="submit" class="btn btn-default" (click)="submitForm()"
+                [disabled]="airplaneForm.invalid">Submit</button>
+        <button type="button" class="btn btn-default" [routerLink]="[ '/airplane/list']">Back</button>
+      </div>
+  
+
+    </form>
+  </div>

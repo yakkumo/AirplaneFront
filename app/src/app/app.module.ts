@@ -1,21 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-import { FormsModule } from '@angular/forms';
-
 import { HttpClientModule } from '@angular/common/http';
-
-import { RouterModule } from '@angular/router';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-
-import { AirplaneCreateComponent } from './Airplane-create/Airplane-create.component';
-import { AirplaneEditComponent } from './Airplane-edit/Airplane-edit.component';
-import { AirplaneListComponent } from './Airplane-list/Airplane-list.component';
+import { AirplaneCreateComponent } from './airplane/airplane-create/airplane-create.component';
+import { AirplaneEditComponent } from './airplane/airplane-edit/airplane-edit.component';
+import { AirplaneListComponent } from './airplane/airplane-list/airplane-list.component';
+import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
+import { IdentityRevealedValidatorDirective } from './shared/identity-revealed.directive';
+import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
 
 @NgModule({
   declarations: [
@@ -24,13 +20,17 @@ import { AirplaneListComponent } from './Airplane-list/Airplane-list.component';
     AirplaneEditComponent,
     AirplaneListComponent,
     NavMenuComponent,
-    HomeComponent
+    HomeComponent,
+    ForbiddenValidatorDirective,
+    IdentityRevealedValidatorDirective,
+    UniqueAlterEgoValidatorDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
