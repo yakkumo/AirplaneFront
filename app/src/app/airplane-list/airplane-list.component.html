@@ -3,17 +3,15 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
-        <th scope="col">codigo</th>
-        <th scope="col">modelo</th>
-        <th scope="col">Quantidade de passageiros</th>
-        <th scope="col">Data de registro</th>
-        <th scope="col">Actions</th>
+        <th scope="col">Code</th>
+        <th scope="col">Model</th>
+        <th scope="col">Number of passengers</th>
+        <th scope="col">Registration Date</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of AirplanesData">
-        <td>{{item.id}}</td>
         <td>{{item.codigo}}</td>
         <td>{{item.modelo}}</td>
         <td>{{item.quantidadePassageiros}}</td>
