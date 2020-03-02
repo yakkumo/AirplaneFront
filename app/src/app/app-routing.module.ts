@@ -6,7 +6,7 @@ import { AirplaneEditComponent } from './Airplane-edit/Airplane-edit.component';
 import { AirplaneListComponent } from './Airplane-list/Airplane-list.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create' },
+  { path: '', pathMatch: 'full', redirectTo: 'list' },
   { path: 'create', component: AirplaneCreateComponent },
   { path: 'edit/:id', component: AirplaneEditComponent},
   { path: 'list', component: AirplaneListComponent }  
