@@ -46,7 +46,7 @@
         <div class="form-group">
           <label for="quantidadePassageiros">Number of passengers</label>
           <input id="quantidadePassageiros" name="quantidadePassageiros" class="form-control"
-                required minlength="1" ngModel pattern="[0-9]*"
+                required minlength="1" maxlength="3" ngModel pattern="[0-9]*"
                 [(ngModel)]="hero.quantidadePassageiros" #quantidadePassageiros="ngModel" >
 
           <div *ngIf="quantidadePassageiros.invalid && (quantidadePassageiros.dirty || quantidadePassageiros.touched)"
@@ -57,6 +57,9 @@
             </div>
             <div *ngIf="quantidadePassageiros.errors.minlength">
               Number of passengers must be at least 1 characters long.
+            </div>
+            <div *ngIf="quantidadePassageiros.errors.maxlength">
+              Number of passengers must be at max 3 characters long.
             </div>
             <div *ngIf="quantidadePassageiros.errors?.pattern">
               You can only input numbers.

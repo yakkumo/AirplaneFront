@@ -26,16 +26,19 @@ export class AirplaneCreateComponent implements OnInit {
     this.airplaneForm = new FormGroup({
       'codigo': new FormControl(this.hero.codigo, [
         Validators.required,
-        Validators.minLength(1)
+        Validators.minLength(1),
+        Validators.maxLength(255)
       ]),
       'modelo': new FormControl(this.hero.modelo, [
         Validators.required,
-        Validators.minLength(1)
+        Validators.minLength(1),
+        Validators.maxLength(255)
       ]
       ),
       'quantidadePassageiros': new FormControl(this.hero.quantidadePassageiros, [
         Validators.required,
-        Validators.minLength(1)
+        Validators.minLength(1),
+        Validators.maxLength(3)
       ]
       )
     });
