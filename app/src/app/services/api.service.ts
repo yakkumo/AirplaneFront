@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { aiplane } from '../models/aiplane';
+import { Airplane } from '../models/Airplane';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -40,33 +40,33 @@ export class ApiService {
 
 
   // Create a new item
-  createItem(item): Observable<aiplane> {
+  createItem(item): Observable<Airplane> {
     item.id = 0;
     item.quantidadePassageiros = parseInt(item.quantidadePassageiros);
     item.dataRegistro = new Date;
     console.log(item);
     return this.http
-      .post<aiplane>(this.base_path, item, this.httpOptions)
+      .post<Airplane>(this.base_path, item, this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
 
-  // Get single aiplane data by ID
-  getItem(id): Observable<aiplane> {
+  // Get single Airplane data by ID
+  getItem(id): Observable<Airplane> {
     return this.http
-      .get<aiplane>(this.base_path + '/' + id)
+      .get<Airplane>(this.base_path + '/' + id)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
 
-  // Get aiplanes data
-  getList(): Observable<aiplane> {
+  // Get Airplanes data
+  getList(): Observable<Airplane> {
     return this.http
-      .get<aiplane>(this.base_path)
+      .get<Airplane>(this.base_path)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -74,10 +74,10 @@ export class ApiService {
   }
 
   // Update item by id
-  updateItem(id, item): Observable<aiplane> {
+  updateItem(id, item): Observable<Airplane> {
     item.quantidadePassageiros = parseInt(item.quantidadePassageiros);
     return this.http
-      .put<aiplane>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .put<Airplane>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -87,7 +87,7 @@ export class ApiService {
   // Delete item by id
   deleteItem(id) {
     return this.http
-      .delete<aiplane>(this.base_path + '/' + id, this.httpOptions)
+      .delete<Airplane>(this.base_path + '/' + id, this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)

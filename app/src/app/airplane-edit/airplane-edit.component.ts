@@ -1,25 +1,25 @@
-//aiplane-edit.component.ts 
+//Airplane-edit.component.ts 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { aiplane } from '../models/aiplane';
+import { Airplane } from '../models/Airplane';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-aiplane-edit',
-  templateUrl: './aiplane-edit.component.html',
-  styleUrls: ['./aiplane-edit.component.css']
+  selector: 'app-Airplane-edit',
+  templateUrl: './Airplane-edit.component.html',
+  styleUrls: ['./Airplane-edit.component.css']
 })
-export class aiplaneEditComponent implements OnInit {
+export class AirplaneEditComponent implements OnInit {
 
   id: number;
-  data: aiplane;
+  data: Airplane;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public router: Router,
     public apiService: ApiService
   ) {
-    this.data = new aiplane();
+    this.data = new Airplane();
   }
 
   ngOnInit() {

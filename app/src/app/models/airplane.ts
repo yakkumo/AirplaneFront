@@ -1,4 +1,4 @@
-export class aiplane {
+export class Airplane {
     id: number;
     codigo: string;
     modelo: string;
