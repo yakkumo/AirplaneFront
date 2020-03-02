@@ -1,40 +1,40 @@
-//student-list.component.ts
+//aiplane-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-student-list',
-  templateUrl: './student-list.component.html',
-  styleUrls: ['./student-list.component.css']
+  selector: 'app-aiplane-list',
+  templateUrl: './aiplane-list.component.html',
+  styleUrls: ['./aiplane-list.component.css']
 })
-export class StudentListComponent implements OnInit {
+export class aiplaneListComponent implements OnInit {
 
-  studentsData: any;
+  aiplanesData: any;
 
   constructor(
     public apiService: ApiService
   ) {
-    this.studentsData = [];
+    this.aiplanesData = [];
   }
 
   ngOnInit() {
-    this.getAllStudents();
+    this.getAllaiplanes();
   }
 
-  getAllStudents() {
-    //Get saved list of students
+  getAllaiplanes() {
+    //Get saved list of aiplanes
     this.apiService.getList().subscribe(response => {
       console.log(response);
-      this.studentsData = response;;
+      this.aiplanesData = response;;
     })
   }
 
 
   delete(item) {
-    //Delete item in Student data
+    //Delete item in aiplane data
     this.apiService.deleteItem(item.id).subscribe(Response => {
       //Update list after delete is successful
-      this.getAllStudents();
+      this.getAllaiplanes();
     });
   }
 }

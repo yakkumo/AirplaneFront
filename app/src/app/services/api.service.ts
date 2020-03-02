@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Student } from '../models/student';
+import { aiplane } from '../models/aiplane';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 
@@ -40,29 +40,29 @@ export class ApiService {
 
 
   // Create a new item
-  createItem(item): Observable<Student> {
+  createItem(item): Observable<aiplane> {
     return this.http
-      .post<Student>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .post<aiplane>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
 
-  // Get single student data by ID
-  getItem(id): Observable<Student> {
+  // Get single aiplane data by ID
+  getItem(id): Observable<aiplane> {
     return this.http
-      .get<Student>(this.base_path + '/' + id)
+      .get<aiplane>(this.base_path + '/' + id)
       .pipe(
         retry(0),
         catchError(this.handleError)
       )
   }
 
-  // Get students data
-  getList(): Observable<Student> {
+  // Get aiplanes data
+  getList(): Observable<aiplane> {
     return this.http
-      .get<Student>(this.base_path)
+      .get<aiplane>(this.base_path)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -70,9 +70,9 @@ export class ApiService {
   }
 
   // Update item by id
-  updateItem(id, item): Observable<Student> {
+  updateItem(id, item): Observable<aiplane> {
     return this.http
-      .put<Student>(this.base_path, JSON.stringify(item), this.httpOptions)
+      .put<aiplane>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)
@@ -82,7 +82,7 @@ export class ApiService {
   // Delete item by id
   deleteItem(id) {
     return this.http
-      .delete<Student>(this.base_path + '/' + id, this.httpOptions)
+      .delete<aiplane>(this.base_path + '/' + id, this.httpOptions)
       .pipe(
         retry(0),
         catchError(this.handleError)

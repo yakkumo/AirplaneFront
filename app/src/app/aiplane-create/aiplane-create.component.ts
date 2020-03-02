@@ -1,28 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Student } from '../models/student';
+import { aiplane } from '../models/aiplane';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-student-create',
-  templateUrl: './student-create.component.html',
-  styleUrls: ['./student-create.component.css']
+  selector: 'app-aiplane-create',
+  templateUrl: './aiplane-create.component.html',
+  styleUrls: ['./aiplane-create.component.css']
 })
-export class StudentCreateComponent implements OnInit {
+export class aiplaneCreateComponent implements OnInit {
 
-  data: Student
+  data: aiplane
 
   constructor(
     public apiService: ApiService,
     public router: Router
   ) {
-    this.data = new Student();
+    this.data = new aiplane();
   }
 
   ngOnInit() {
   }
 
   submitForm() {
+    console.log("teste");
     this.apiService.createItem(this.data).subscribe((response) => {
       this.router.navigate(['list']);
     });

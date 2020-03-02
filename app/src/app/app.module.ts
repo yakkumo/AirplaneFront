@@ -8,16 +8,16 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { StudentCreateComponent } from './student-create/student-create.component';
-import { StudentEditComponent } from './student-edit/student-edit.component';
-import { StudentListComponent } from './student-list/student-list.component';
+import { aiplaneCreateComponent } from './aiplane-create/aiplane-create.component';
+import { aiplaneEditComponent } from './aiplane-edit/aiplane-edit.component';
+import { aiplaneListComponent } from './aiplane-list/aiplane-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentCreateComponent,
-    StudentEditComponent,
-    StudentListComponent
+    aiplaneCreateComponent,
+    aiplaneEditComponent,
+    aiplaneListComponent
   ],
   imports: [
     BrowserModule,

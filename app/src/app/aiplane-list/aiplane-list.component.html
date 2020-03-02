@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>List All Students</h3>
+  <h3>List All aiplanes</h3>
   <table class="table">
     <thead>
       <tr>
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of studentsData">
+      <tr *ngFor="let item of aiplanesData">
         <td>{{item.id}}</td>
         <td>{{item.codigo}}</td>
         <td>{{item.modelo}}</td>
@@ -26,5 +26,5 @@
     </tbody>
   </table>
 
-  <button type="button" class="btn btn-success" routerLink="/create">Add Student</button>
+  <button type="button" class="btn btn-success" routerLink="/create">Add aiplane</button>
 </div>
