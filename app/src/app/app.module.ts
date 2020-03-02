@@ -8,6 +8,11 @@ import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { RouterModule } from '@angular/router';
+
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { HomeComponent } from './home/home.component';
+
 import { AirplaneCreateComponent } from './Airplane-create/Airplane-create.component';
 import { AirplaneEditComponent } from './Airplane-edit/Airplane-edit.component';
 import { AirplaneListComponent } from './Airplane-list/Airplane-list.component';
@@ -17,7 +22,9 @@ import { AirplaneListComponent } from './Airplane-list/Airplane-list.component';
     AppComponent,
     AirplaneCreateComponent,
     AirplaneEditComponent,
-    AirplaneListComponent
+    AirplaneListComponent,
+    NavMenuComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@
         <td>{{item.codigo}}</td>
         <td>{{item.modelo}}</td>
         <td>{{item.quantidadePassageiros}}</td>
-        <td>{{item.dataRegistro|date:'MM/dd/yyyy'}}</td>
+        <td>{{item.dataRegistro|date:'MM/dd/yyyy hh:mm'}}</td>
         <td style="display: flex">
             <button type="button" class="btn btn-warning btn-sm" routerLink="/edit/{{item.id}}">Edit</button>
             <button type="button" class="btn btn-danger btn-sm ml-1" (click)="delete(item)">Delete</button>
