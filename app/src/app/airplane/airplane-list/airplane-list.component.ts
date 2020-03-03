@@ -1,6 +1,7 @@
 //Airplane-list.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-Airplane-list',
@@ -12,7 +13,8 @@ export class AirplaneListComponent implements OnInit {
   AirplanesData: any;
 
   constructor(
-    public apiService: ApiService
+    public apiService: ApiService,
+    private toastr: ToastrService
   ) {
     this.AirplanesData = [];
   }
@@ -32,9 +34,17 @@ export class AirplaneListComponent implements OnInit {
 
   delete(item) {
     //Delete item in Airplane data
-    this.apiService.deleteItem(item.id).subscribe(Response => {
+    this.apiService.deleteItem(item.id).subscribe(response => {
       //Update list after delete is successful
-      this.getAllAirplanes();
+      if(response.sucesso)
+      {
+        this.toastr.success(response.mensagem , 'Success', {timeOut: 3000});
+        this.getAllAirplanes();
+      }
+      else
+      {
+        this.toastr.error(response.mensagem , 'Major Error', {timeOut: 3000});
+      }
     });
   }
 }

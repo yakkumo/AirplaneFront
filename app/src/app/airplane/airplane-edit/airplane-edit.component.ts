@@ -4,6 +4,7 @@ import { Airplane } from '../../models/Airplane';
 import { ApiService } from '../../services/api.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-Airplane-edit',
@@ -13,35 +14,36 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class AirplaneEditComponent implements OnInit {
 
   id: number;
-  hero: Airplane;
+  airp: Airplane;
   airplaneForm: FormGroup;
 
   constructor(
     public activatedRoute: ActivatedRoute,
     public router: Router,
-    public apiService: ApiService
+    public apiService: ApiService,
+    private toastr: ToastrService
   ) {
-    this.hero = new Airplane();
+    this.airp = new Airplane();
   }
 
   ngOnInit() {
 
     this.airplaneForm = new FormGroup({
-      'codigo': new FormControl(this.hero.codigo, [
+      'codigo': new FormControl(this.airp.codigo, [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(255)
       ]),
-      'modelo': new FormControl(this.hero.modelo, [
+      'modelo': new FormControl(this.airp.modelo, [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(255)
       ]
       ),
-      'quantidadePassageiros': new FormControl(this.hero.quantidadePassageiros, [
+      'quantidadePassageiros': new FormControl(this.airp.quantidadePassageiros, [
         Validators.required,
         Validators.minLength(1),
-        Validators.maxLength(3)
+        Validators.maxLength(4)
       ]
       )
     });
@@ -52,7 +54,7 @@ export class AirplaneEditComponent implements OnInit {
     //get item details using id
     this.apiService.getItem(this.id).subscribe(response => {
       console.log(response);
-      this.hero = response;
+      this.airp = response.data;
     })
   }
 
@@ -64,8 +66,15 @@ export class AirplaneEditComponent implements OnInit {
 
   update() {
     //Update item by taking id and updated data object
-    this.apiService.updateItem(this.id, this.hero).subscribe(response => {
-      this.router.navigate(['/airplane/list']);
+    this.apiService.updateItem(this.id, this.airp).subscribe(response => {
+      if(response.sucesso)
+      {
+        this.router.navigate(['/airplane/list']);
+      }
+      else
+      {
+        this.toastr.error(response.mensagem , 'Major Error', {timeOut: 3000});
+      }
     })
   }
 

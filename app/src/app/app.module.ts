@@ -9,9 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { AirplaneCreateComponent } from './airplane/airplane-create/airplane-create.component';
 import { AirplaneEditComponent } from './airplane/airplane-edit/airplane-edit.component';
 import { AirplaneListComponent } from './airplane/airplane-list/airplane-list.component';
-import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
-import { IdentityRevealedValidatorDirective } from './shared/identity-revealed.directive';
-import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,17 +20,17 @@ import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
     AirplaneEditComponent,
     AirplaneListComponent,
     NavMenuComponent,
-    HomeComponent,
-    ForbiddenValidatorDirective,
-    IdentityRevealedValidatorDirective,
-    UniqueAlterEgoValidatorDirective
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
   ],
   providers: [],
   bootstrap: [AppComponent]
