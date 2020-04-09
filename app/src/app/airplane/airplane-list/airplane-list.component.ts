@@ -1,50 +1,35 @@
-//Airplane-list.component.ts
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { ToastrService } from 'ngx-toastr';
 
+import {Component} from '@angular/core';
+
+export interface PeriodicElement {
+  name: string;
+  position: number;
+  weight: number;
+  symbol: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
+  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
+  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
+  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
+  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
+  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
+  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
+  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
+  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
+  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+];
+
+/**
+ * @title Basic use of `<table mat-table>`
+ */
 @Component({
-  selector: 'app-Airplane-list',
-  templateUrl: './Airplane-list.component.html',
-  styleUrls: ['./Airplane-list.component.css']
+  selector: 'table-basic-example',
+  templateUrl: './airplane-list.component.html',
+  styleUrls: ['./airplane-list.component.scss']
 })
-export class AirplaneListComponent implements OnInit {
-
-  AirplanesData: any;
-
-  constructor(
-    public apiService: ApiService,
-    private toastr: ToastrService
-  ) {
-    this.AirplanesData = [];
-  }
-
-  ngOnInit() {
-    this.getAllAirplanes();
-  }
-
-  getAllAirplanes() {
-    //Get saved list of Airplanes
-    this.apiService.getList().subscribe(response => {
-      console.log(response);
-      this.AirplanesData = response;;
-    })
-  }
-
-
-  delete(item) {
-    //Delete item in Airplane data
-    this.apiService.deleteItem(item.id).subscribe(response => {
-      //Update list after delete is successful
-      if(response.sucesso)
-      {
-        this.toastr.success(response.mensagem , 'Success', {timeOut: 3000});
-        this.getAllAirplanes();
-      }
-      else
-      {
-        this.toastr.error(response.mensagem , 'Major Error', {timeOut: 3000});
-      }
-    });
-  }
+export class AirplaneListComponent {
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  dataSource = ELEMENT_DATA;
 }
