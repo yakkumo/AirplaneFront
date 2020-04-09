@@ -1,0 +1,38 @@
+<nav>
+  <ul>
+    <li>
+      <span class="title-menu">Chamados</span>
+    </li>
+    <li>
+      <a href="https://helpdesk.editoradobrasil.com.br/index.html" target="_blank"> Atendente</a>
+      <a href="https://helpdesk.editoradobrasil.com.br/customer.html" target="_blank"> Cliente</a>
+    </li>
+    <hr class="hr-menu">
+    <li>
+      <span class="title-menu">Intranet</span>
+    </li>
+    <li>
+      <a href="http://www.editoradobrasil.com.br/ebsa" target="_blank"> Acessar Intranet</a>
+    </li>
+    <li *ngFor="let menu of menus">
+      <hr *ngIf="menu.idPai === null" class="hr-menu">
+      <span *ngIf="menu.idPai === null" class="title-menu">{{menu.descricao}}</span>
+      <a *ngIf="menu.idPai !== null" [ngClass]="{ active: (activeLink == '/'+menu.rota) }"
+        (click)="navigate(menu.rota)"> {{menu.descricao}}
+      </a>
+    </li>
+
+  </ul>
+</nav>
+<div>
+  <nav class="menu-mobile">
+    <ul>
+      <li>
+        <hr class="hr-menu">
+        <a (click)="logout()">
+          Sair
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,119 @@
+.aside-menu {
+  margin-top: 90px;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+.hr-side-menu {
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  margin-left: -10px;
+  border-top: 1px solid #EFEFEF;
+}
+
+.label-aside {
+    display: block;
+    width: 100%;
+    padding: 15px 0 0 10px;
+    margin-bottom: 10px;
+    transition: padding-left .3s ease ,background-color .1s linear;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.mat-button {
+  width: 100%;
+  background: #19286E;
+  color: white !important;
+}
+
+.title-label{
+  color: #19286E;
+  font-size: 1.2em;
+}
+
+.div-cotacao p{
+  margin: 2px 0 0 0;;
+  font-size: 12px;
+}
+
+.div-cotacao img{
+  padding: 5px 0;
+}
+
+.valorMoeda{
+  font-size: 16px;
+}
+
+.subtituloPrevTempo strong{
+  color: #444;
+  font-size: 9px;
+}
+
+.subtituloPrevTempo span{
+  color: #0073A7;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.divNomeCidade img{
+  height: 15px;
+  padding: 0 5px 0 10px;
+}
+
+.temp{
+  color: #444;
+}
+
+.temp h1{
+  font-size: 40px;
+  padding-top: 15px;
+  margin: 0;
+}
+
+.subInformacoesPrevTempo p,.temp span{
+  font-size: 9px;
+  font-weight: bolder;
+  margin: 0;
+  padding-top: 3px;
+  text-align: center;
+}
+
+.ramal-label{
+  font-size: 12px;
+}
+
+mat-icon{
+  color: #D2D2C8;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.mat-icon-favoritos,mat-icon:hover{
+  color: #FADC00;
+}
+
+.mat-icon-favoritos{
+  padding: 0 20px 0 10px;
+  cursor: default;
+}
+
+.mat-icon-delete:hover{
+  color: #333333;
+}
+
+.favoritos{
+  background: #EFEFEF;
+  align-items: center;
+  margin: 10px 0;
+}
+

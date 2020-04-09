@@ -1,0 +1,66 @@
+<header class="header" fxLayout="row">
+  <div class="btn-backmobile" fxHide.gt-sm *ngIf="btnBackMobile != null"
+    [ngClass]="btnBackMobile ? 'show-btnback': 'hide-btnback'" (click)="voltarPagina(redirect)">
+    <mat-icon aria-hidden="false" aria-label="backbutton icon">arrow_back_ios</mat-icon>
+  </div>
+  <div class="coluna-logotipo" routerLink="/inicio" fxFlex fxFlex.lt-sm="calc(100% - 160px)" fxFlex.gt-sm="200px">
+    <img src="../../../../../assets/img/ebsa-logo-azul.png" />
+  </div>
+  <div class="busca" fxFlex fxHide.lt-md>
+    <!-- <input type="text" class="input-busca" placeholder="Pesquisar"> -->
+  </div>
+
+  <!-- <div class="notificacoes" fxFlex.lt-sm="50px" fxFlex.gt-sm="80px">
+    <mat-icon matBadge="7" matBadgeColor="warn" matBadgePosition="above after"><fa-icon [icon]="faBell"></fa-icon></mat-icon>
+  </div> -->
+  <div class="perfil" fxHide.lt-md fxFlex.gt-sm="260px" [matMenuTriggerFor]="appMenu">
+    <div class="info-user" fxFlex>
+      <h5>{{ saudacao }}, {{usuario.nome}}</h5>
+      <p>{{moment}}</p>
+    </div>
+    <div class="foto-user" fxFlex="60px">
+      <img src="../../assets/img/man1.png" class="rounded-circle" alt="">
+    </div>
+    <mat-menu #appMenu="matMenu" xPosition="before">
+      <button mat-menu-item>
+        <fa-icon [icon]="faUser"></fa-icon> Perfil
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon> Sair
+      </button>
+    </mat-menu>
+  </div>
+  <div class="buttonMobile" fxShow.lt-md fxHide.lt-xl fxFlex.lt-sm="60px">
+    <button (click)="menuMobile.open()">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+  </div>
+</header>
+
+<div fxShow.lt-md fxHide.lt-xl class="saudacao-mobile">
+  <div class="foto-user" fxFlex="60px">
+    <img src="../../assets/img/man1.png" class="rounded-circle" alt="">
+  </div>
+  <div class="info-user" fxFlex>
+    <h5>{{ saudacao }}, {{usuario.nome}}</h5>
+    <p>{{moment}}</p>
+  </div>
+</div>
+<mat-drawer-container hasBackdrop="true">
+  <mat-drawer style="overflow: hidden" position="end" id="menu-mobile" #menuMobile mode="over">
+    <div class="resume-user" fxLayout="row">
+      <div class="btn-voltar">
+        <button (click)="menuMobile.close()">
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </button>
+      </div>
+      <div class="img-user">
+        <img src="../../assets/img/man1.png" class="rounded-circle" alt="">
+      </div>
+      <div class="nome-user">
+        {{usuario.nome}}
+      </div>
+    </div>
+    <app-menu class="menu-mobile"></app-menu>
+  </mat-drawer>
+</mat-drawer-container>

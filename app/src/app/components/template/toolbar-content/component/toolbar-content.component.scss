@@ -1,0 +1,36 @@
+@import "../../../../../padroes_ebsa.scss";
+
+.toolbar-content {
+  display: flex;
+  width: 100%;
+  color: $azulescuro;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+
+  h3 {
+    margin: 0;
+    padding: 12px 20px;
+
+    fa-icon {
+      padding-right: 10px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      color: #777;
+      padding: 7px;
+      font-size: 1.3em;
+      float: left;
+      list-style: none;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+  }
+}

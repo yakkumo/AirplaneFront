@@ -1,0 +1,149 @@
+<div fxLayout="column" class="aside-menu">
+    <div fxLayout="column">
+        <div fxFlex="100" class="pad10">
+            <mat-label class="title-label">Ramal</mat-label>
+            <form>
+                <mat-form-field appearance="outline">
+                    <input type="text" #ramalInput matInput placeholder="Digite o nome.."
+                        (keyup)="onSearchChange($event.target.value)" [formControl]="ramalFormControl"
+                        [matAutocomplete]="auto3" [(ngModel)]="ramalSelecionado"
+                        (keyup.enter)="callFunctionByEnter($event.target.value)">
+                    <mat-autocomplete autoActiveFirstOption #auto3="matAutocomplete">
+                        <mat-option *ngFor="let usuarioRamal of ramaisFiltrados | async"
+                            (click)="selecionarUsuarioRamal(usuarioRamal)" [value]="usuarioRamal.nome">
+                            {{usuarioRamal.nome}}
+                        </mat-option>
+                    </mat-autocomplete>
+                    <!-- <mat-error *ngIf="ramalFormControl.invalid"></mat-error> -->
+                </mat-form-field>
+            </form>
+        </div>
+        <div fxLayout="row" class="padLR10">
+            <div fxFlex="85" class="ramal-label">
+                <mat-label><strong>{{txtNomeSelecionado}}</strong></mat-label>
+                <p class="no-margin">{{txtRamalSelecionado}}</p>
+            </div>
+            <div fxFlex="15" *ngIf="txtNomeSelecionado != ''">
+                <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true" matTooltip="Favoritar"
+                    (click)="adicionarAosFavoritos()">grade
+                </mat-icon>
+            </div>
+        </div>
+        <div class="pad10" *ngIf="listaRamais.length > 0">
+            <div fxLayout="row" class="favoritos">
+                <div fxFlex="30">
+                    <mat-icon class="mat-icon material-icons mat-icon-favoritos" role="img" aria-hidden="true">grade
+                    </mat-icon>
+                </div>
+                <div fxFlex="70">
+                    <strong>Favoritos</strong>
+                </div>
+            </div>
+            <div class="row" *ngFor="let item of listaRamais; let i = index">
+                <div class="padTB10" fxLayout="row">
+                    <div fxFlex="85" class="ramal-label">
+                        <mat-label><strong>{{item.nome}}</strong></mat-label>
+                        <p class="no-margin">{{item.departamento + ' ' +item.ramal}}</p>
+                    </div>
+                    <div fxFlex="15">
+                        <mat-icon class="mat-icon material-icons mat-icon-delete" role="img" aria-hidden="true"
+                            matTooltip="Excluir" (click)="excluirFavoritado(item.id, i)">delete
+                        </mat-icon>
+                    </div>
+                </div>
+                <hr *ngIf="i != listaRamais.length-1">
+            </div>
+        </div>
+    </div>
+    <hr class="hr-menu">
+    <div fxLayout="column" class="pad10">
+        <div fxFlex="100">
+            <mat-label class="title-label">Previsão do Tempo</mat-label>
+        </div>
+        <div class="subtituloPrevTempo">
+            <div fxLayout="row">
+                <strong>VOCÊ ESTÁ EM</strong>
+            </div>
+            <div fxLayout="row">
+                <div fxFlex="100" class="divNomeCidade">
+                    <img src="../../../assets/img/local.svg" alt="">
+                    <span>{{cidade}}</span>
+                </div>
+            </div>
+        </div>
+        <div fxLayout="row" class="temp">
+            <div fxFlex="45">
+                <canvas id="imgTemp" width="64" height="64"></canvas>
+            </div>
+            <div fxFlex="55">
+                <h1>{{temp}}</h1>
+                <span>{{condicao}}</span>
+            </div>
+        </div>
+        <div fxLayout="row" class="subInformacoesPrevTempo">
+            <div fxFlex="33">
+                <p>Sensação</p>
+                <p>{{sensacaoTermica}}</p>
+            </div>
+            <div fxFlex="33">
+                <p>Umidade</p>
+                <p>{{umidade}}</p>
+            </div>
+            <div fxFlex="33">
+                <p>Vento</p>
+                <p>{{velocVento}}</p>
+            </div>
+        </div>
+    </div>
+    <hr class="hr-menu">
+    <div fxLayout="column" class="div-cotacao pad10">
+        <div fxFlex="100">
+            <mat-label class="title-label">Cotações</mat-label>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="23">
+                <img src="../../../assets/img/usa-flag.png" alt="bandeira-usa">
+            </div>
+            <div fxFlex="77">
+                <p><strong>Dólar</strong></p>
+                <strong><span
+                        [ngStyle]="{'color': percDiaAnteriorDolar.includes('+') ? 'green' : 'red' }">{{percDiaAnteriorDolar.replace('.',',') }}</span></strong>
+                <span
+                    class="fRight valorMoeda">{{ValorDolar.toLocaleString('pt-br',{style: 'currency', currency: 'BRL', minimumFractionDigits: 3}) }}</span>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="23">
+                <img src="../../../assets/img/argentina-flag.png" alt="bandeira-argentina">
+            </div>
+            <div fxFlex="77">
+                <p><strong>Peso Argentino</strong></p>
+                <strong><span
+                        [ngStyle]="{'color': percDiaAnteriorPeso.includes('+') ? 'green' : 'red' }">{{percDiaAnteriorPeso.replace('.',',') }}</span></strong>
+                <span
+                    class="fRight valorMoeda">{{ValorPeso.toLocaleString('pt-br',{style: 'currency', currency: 'BRL', minimumFractionDigits: 3}) }}</span>
+            </div>
+        </div>
+        <div fxLayout="row">
+            <div fxFlex="23">
+                <img src="../../../assets/img/Euro.png" alt="bandeira-Europa">
+            </div>
+            <div fxFlex="77">
+                <p><strong>Euro</strong></p>
+                <strong><span
+                        [ngStyle]="{'color': percDiaAnteriorEuro.includes('+') ? 'green' : 'red' }">{{percDiaAnteriorEuro.replace('.',',') }}&nbsp;</span></strong>
+                <span
+                    class="fRight valorMoeda">{{ValorEuro.toLocaleString('pt-br',{style: 'currency', currency: 'BRL', minimumFractionDigits: 3}) }}</span>
+            </div>
+        </div>
+        <div *ngIf="bit" fxLayout="row">
+            <div fxFlex="77">
+                <p><strong>BitCoin</strong></p>
+                <strong><span
+                    [ngStyle]="{'color': percDiaAnteriorBit.includes('+') ? 'green' : 'red' }">{{percDiaAnteriorBit.replace('.',',') }}&nbsp;</span></strong>
+                <span
+                    class="fRight valorMoeda">{{ValorBit.toLocaleString('pt-br',{style: 'currency', currency: 'BRL', minimumFractionDigits: 3}) }}</span>
+            </div>
+        </div>
+    </div>
+</div>

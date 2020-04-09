@@ -1,0 +1,61 @@
+@import '../../../../mediaqueries.scss';
+
+.coluna-header {
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.coluna-menu {
+  background-color: white;
+  position: fixed;
+  margin-top: 90px;
+}
+
+.coluna-aside {
+  background-color: white;
+}
+
+.coluna-conteudo {
+  margin: 90px 0 0 200px;
+  position: relative;
+  width: 100%;
+  min-height: calc(99vh - 85px);
+
+  @include mobile-only {
+    margin: 0px;
+  }
+
+  @include tablet-portrait-only {
+    margin: 0px;
+  }
+}
+
+.mat-progress-spinner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.4);
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  margin: auto;
+}
+
+.conteudo-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  @include mobile-only  {
+    position: fixed;
+    bottom: 0;
+  }
+
+  @include tablet-portrait-only  {
+    position: fixed;
+    bottom: 0;
+  }
+}

@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-Airplane-create',
   templateUrl: './Airplane-create.component.html',
-  styleUrls: ['./Airplane-create.component.css']
+  styleUrls: ['./Airplane-create.component.scss']
 })
 export class AirplaneCreateComponent implements OnInit {
 
