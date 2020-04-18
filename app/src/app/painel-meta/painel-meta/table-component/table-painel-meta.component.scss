@@ -1,0 +1,111 @@
+@import "../../../../../../padroes_ebsa.scss";
+
+.content-padding {
+  padding: 10px 5px;
+}
+
+.fonte-pendente {
+  color: rgb(214, 43, 43);
+}
+
+.fonte-aprovado {
+  color: rgb(31, 117, 31);
+}
+
+h2{
+  margin-top: 50px;
+  color: #0078be;
+}
+
+//tabela
+.tabela {
+  overflow: hidden;
+  min-width: 100%;
+  max-width: 100%;
+}
+
+.tabela-usuario {
+  padding: 20px;
+  box-sizing: border-box;
+  background: white;
+  width: 100%;
+  box-shadow: none;
+}
+
+table {
+  width: 100%;
+  border: 0;
+  border-spacing: 0px;
+  font-size: 0.9em;
+  color: #333;
+
+  thead {
+    tr {
+      background-color: #efefef !important;
+
+      th {
+        padding: 10px 15px;
+        text-align: left;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      border-bottom: 1px solid #333 !important;
+
+      &:nth-child(even) {
+        background-color: #eee !important;
+      }
+      &:nth-child(odd) {
+        background-color: #fff !important;
+      }
+
+      td {
+        //font-family: "LatowebLight";
+        //background-color: white;
+        font-size: 1.0em;
+        padding: 10px 5px;
+        text-align: left;
+        font-weight: bold;
+
+        // &:first-child {
+        //   border-left: 1px solid #eee;
+        // }
+      }
+    }
+    td.link {
+      cursor: pointer;
+      color: #0078be;
+      text-decoration: underline;
+    }
+  }
+}
+
+.label-nome {
+  color: #888;
+  margin-bottom: 0px;
+}
+.label-valor {
+  color: #333;
+  margin-top: 0px;
+}
+.mat-expansion-panel {
+  box-shadow: none;
+}
+
+.margin-icon-edit{
+  margin-left: 20px;
+}
+
+.mat-icon{
+  color: #0073A7;
+}
+
+.padding-btn-6{
+  padding: 6px;
+}
+
+.mat-button.mat-primary {
+  padding: 3px;
+}

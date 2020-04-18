@@ -1,0 +1,320 @@
+@import '../../../../../mediaqueries.scss';
+@import '../../../../../padroes_ebsa.scss';
+
+[hidden] {
+  display: none !important;
+}
+
+mat-card{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+}
+
+.main-label{
+  font-size: medium;
+}
+
+.sub-label{
+  font-size: small;
+}
+
+.submit-zone{
+  margin-top: 10px;
+}
+
+.textarea-aprovacao{
+  margin-top: 15px;
+  width: 50%;
+}
+
+.btn-ebsa-secondary {
+  box-shadow: none;
+  color: $azulescuro;
+  background-color: #e4e4e4;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.btn-ebsa-primary {
+  color: $azulescuro;
+  box-shadow: none;
+  font-size: 14px;
+  margin: 2px;
+}
+
+.mat-tab-label-active {
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: blue;
+    font-weight: 700;
+    
+  }
+
+
+  .mat-tab-label{
+    font-size: 17px !important;
+ } 
+
+ /*.mat-tab-label {
+    min-width: 25px !important;
+    padding: 5px;
+    background-color: transparent;
+    color: blue;
+    font-weight: 700;
+    
+  }
+*/
+
+
+  .mat-ink-bar {
+    background-color: blue;
+  }
+
+
+
+
+.content-panel {
+    padding: 10px;
+    box-shadow: none;
+    box-sizing: border-box;
+    background: white;
+}
+
+.box-panel {
+
+    border-radius: 5px;
+    border: 1px solid green;
+    padding: 10px;
+    background: transparent;
+    position: relative;
+}
+
+/*.box-panel-items {
+
+//  border-radius: 5px;
+//  border: 1px solid green;
+//  padding: 10px;
+  background: transparent;
+  position:inherit;
+  overflow: scroll;
+  width:100%;
+  height: 100px;
+
+}
+*/
+
+.head-label {
+    padding: 10px 0;
+    background-color: transparent;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: blue;
+}
+
+.item-label {
+    padding: 10px 0;
+    background-color: transparent;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: blue
+}
+
+
+
+
+  
+
+
+  
+  table {
+    -webkit-font-smoothing: antialiased !important;
+    width: 100%;
+    border: 0;
+    border-spacing: 0px;
+    color: #333;
+    tr > * {
+      padding: 8px;
+    }
+  
+    thead {
+  
+      tr {
+        background-color: #efefef !important;
+  
+  
+        th {
+          border-bottom: 1px solid #eee;
+          border-right: 1px solid #eee;
+  
+          &:first-child {
+            border-left: 1px solid #eee;
+          }
+  
+          &:last-child {
+            border-right: none;
+          }
+        }
+      }
+    }
+  
+    tbody {
+      
+        /*width:max-content; display: block;
+        overflow-y: auto;    /* Trigger vertical scroll    */
+        //overflow-x: hidden;  /* Hide the horizontal scroll */
+        //height:50px;
+        //overflow:auto;
+
+      tr {
+  
+  
+        &:nth-child(even) {
+            //          background-color: #eee !important;
+background-color: #fff !important;
+        }
+  
+        &:nth-child(odd) {
+          background-color: #fff !important;
+        }
+  
+        td {
+          border-bottom: 1px solid #ccc;
+          box-sizing: border-box;
+        }
+      }
+  
+      td.link {
+        cursor: pointer;
+        color: #0078BE;
+        text-decoration: underline;
+  
+      }
+    }
+  }
+  
+  .btn-buscar {
+    padding: 15px;
+  }
+  
+  
+  td:nth-child(1), td:nth-child(2), td:nth-child(3), td:nth-child(4), td:nth-child(5), th:nth-child(1), th:nth-child(2), th:nth-child(3), th:nth-child(4), th:nth-child(5) {
+    text-align: left !important;
+    max-width: 700px;
+  }
+  
+  td:nth-child(6), th:nth-child(6){
+    text-align: right;
+  }
+  
+  .input-req {
+    padding: 15px 0;
+  }
+  
+  .valor-label {
+    padding: 22px;
+    display: block;
+    color: #333
+  }
+  
+  .departamento-label
+  {
+    font-weight: bolder;;
+    display: block;
+    color: #333
+  }
+  
+  .cartao-label {
+    padding: 22px;
+    display: block;
+    color: #333
+  }
+  
+  
+  
+  .div-grid-head {
+    padding: 10px 0;
+    border: 0px solid black;
+    width: 100%;
+    background-color: green;
+    font-weight: bold;
+    vertical-align: center;
+    font-size: 1.2em;
+    color: #333;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em
+  
+  }
+  
+  .div-text {
+    padding: 10px 0;
+    border: 0px solid black;
+    width: 80%;
+    font-weight: bold;
+    color: #0E29BE;
+    vertical-align: center;
+    font-size: 1.2em;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px
+  
+  }
+  
+  
+  .div-body {
+    padding: 10px 0;
+    border: 0px solid black;
+    width: 100%;
+    font-weight: bold;
+    color: #0E29BE;
+    background-color: white;
+    vertical-align: center;
+    font-size: 1.2em;
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-right: 5px;
+    margin-bottom: 5px
+  
+  }
+  
+  
+  
+  .consulta-label {
+    padding-left: 20px
+  }
+  
+  
+  .painel-field-style {
+    width: 40%;
+    border: 0px solid black;
+    font-weight: bold;
+    color: red;
+    
+  }
+  
+  
+  .painel-slider-style {
+    width: 10%;
+    border: 0px solid black;
+    border-width: thick;
+    color: red;
+    
+  }
+  
+  
+  .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+  
+  
+  }
+  
+  .mat-icon{
+    color: #0073A7;
+  }

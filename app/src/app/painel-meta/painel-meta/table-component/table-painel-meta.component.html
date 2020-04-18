@@ -1,0 +1,60 @@
+<div class="component-style table-component">
+
+  <div class="component-tag">
+  </div>
+
+  <h2 class="text-center"> {{ customTitle }}</h2>
+
+
+  <div fxLayout="column">
+    <div class="">
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let col of headers; last as isLast">
+              <div *ngIf="isLast" class="component-tag-sm">
+              </div>
+              {{col}}
+            </th>
+            <th *ngIf="show;">Visualizar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="break-word" *ngFor="let it of itens | async">
+            <td *ngFor="let col of columns; last as isLast">
+              <div *ngIf="isLast" class="component-tag-sm"></div>
+
+              <ng-template [ngIf]="col === 'status'" [ngIfElse]="textoNormal">
+                <ng-template [ngIf]="it[col] === true" [ngIfElse]="pendente">
+                  <mat-label class="fonte-aprovado">Aprovado</mat-label>
+                </ng-template>
+                <ng-template #pendente>
+                  <mat-label class="fonte-pendente">Pendente</mat-label>
+                </ng-template>
+              </ng-template>
+              <ng-template #textoNormal>
+                <mat-label>{{ it[col] }}</mat-label>
+              </ng-template>
+            </td>
+            <div *ngIf="show">
+              <td>
+                <button
+                  class="mat-button margin-icon-edit"
+                  [routerLink]="[rota]+it['id']"
+                  mat-button=""
+                >
+                  <span class="mat-button-wrapper">
+                    <mat-icon class="mat-icon material-icons" role="img" aria-hidden="true"
+                      >search</mat-icon
+                    >
+                  </span>
+                </button>
+              </td>
+            </div>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

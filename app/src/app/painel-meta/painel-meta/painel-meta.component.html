@@ -1,0 +1,29 @@
+<app-template [(tipoLayout)]="layout" [(isLoading)]="loading" [(actBackButtonHeader)]="backButtonHeaderMobile"
+  [redirect]="'inicio'">
+  <app-toolbar-content [labelLink]="'Painel de Metas - Aprovados'">
+  </app-toolbar-content>
+
+
+  <mat-card>
+    <mat-tab-group selectedIndex="0" (selectedTabChange)="changeTab($event)">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Indicadores e Metas</span>
+        </ng-template>
+          <app-aba-indicador-meta *ngIf="tabIndex === 0"></app-aba-indicador-meta>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Painéis Individuais</span>
+        </ng-template>
+        <app-aba-painel-individual *ngIf="tabIndex === 1"></app-aba-painel-individual>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <span>Metas Financeiras</span>
+        </ng-template>
+          <app-aba-meta-financeira *ngIf="tabIndex === 2"></app-aba-meta-financeira>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</app-template>

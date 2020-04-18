@@ -1,0 +1,62 @@
+<app-template
+  [(tipoLayout)]="layout"
+  [(isLoading)]="loading"
+  [(actBackButtonHeader)]="backButtonHeaderMobile"
+  [redirect]="'painel-meta'"
+>
+  <app-toolbar-content [labelLink]="'Aprovação de Grupo'">
+  </app-toolbar-content>
+
+  <mat-card>
+    <app-table-painel-meta
+      [rota]="rota"
+      [show]="show"
+      [headers]="headers"
+      [columns]="columns"
+      [itens]="itens"
+      [customTitle]="'Consultores Comerciais'"
+    >
+    </app-table-painel-meta>
+
+    <form name="aprovacaoGrupoForm" [formGroup]="aprovacaoGrupoForm">
+      <ng-template [ngIf]="true" [ngIfElse]="aprovado">
+        <app-text-field-autosize-textarea-painel-meta
+          (notify)="getDadosObservacao($event)"
+        >
+        </app-text-field-autosize-textarea-painel-meta>
+        <mat-form-field [hidden]="true">
+          <input matInput formControlName="observacao" />
+        </mat-form-field>
+      </ng-template>
+      <ng-template #aprovado>
+        <mat-label>teste</mat-label>
+      </ng-template>
+      <div fxLayout="column" class="submit-zone">
+        <div fxFlex="40">
+          <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
+            <button
+              mat-button
+              class="btn-ebsa-secondary"
+              color="primary"
+              id="btnSalvarUsuario"
+              (click)="reprovarForm()"
+            >
+              Reprovar
+            </button>
+          </div>
+          <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
+            <button
+              mat-button
+              class="btn-ebsa-primary"
+              color="primary"
+              id="btnSalvarUsuario"
+              (click)="aprovarForm()"
+            >
+              Aprovar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</app-template>

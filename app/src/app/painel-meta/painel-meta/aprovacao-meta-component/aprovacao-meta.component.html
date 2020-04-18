@@ -1,0 +1,89 @@
+<app-template
+  [(tipoLayout)]="layout"
+  [(isLoading)]="loading"
+  [(actBackButtonHeader)]="backButtonHeaderMobile"
+  [redirect]="'painel-meta'"
+>
+  <app-toolbar-content [labelLink]="'Aprovação de Metas Financeiras'">
+  </app-toolbar-content>
+  <mat-card>
+    <div fxLayout="column" class="zero">
+      <div fxFlex="40" class="one">
+        <div fxFlex="20" fxFlex.md="20" class="main-label">
+          <mat-label class="title-label">UF</mat-label>
+        </div>
+        <div fxFlex="20" fxFlex.md="20" class="main-label">
+          <mat-label class="title-label">Cargo</mat-label>
+        </div>
+        <div fxFlex="20" fxFlex.md="20" class="main-label">
+          <mat-label class="title-label">Nome</mat-label>
+        </div>
+      </div>
+      <div fxFlex="40" fxLayout.md="row" class="two">
+        <div fxFlex="20" fxFlex.md="20" class="sub-label">
+          <mat-label class="">{{ aprovacaoMetasFinanceiras.uf }}</mat-label>
+        </div>
+        <div fxFlex="20" fxFlex.md="20" class="sub-label">
+          <mat-label class="">{{ aprovacaoMetasFinanceiras.cargo }}</mat-label>
+        </div>
+        <div fxFlex="20" fxFlex.md="20" class="sub-label">
+          <mat-label class="">{{ aprovacaoMetasFinanceiras.nome }}</mat-label>
+        </div>
+      </div>
+    </div>
+
+    <app-table-painel-meta
+      [rota]="rota"
+      [show]="show"
+      [headers]="headers"
+      [columns]="columns"
+      [itens]="itens"
+      [customTitle]="''"
+    >
+    </app-table-painel-meta>
+
+    <form
+      name="aprovacaoMetasFinanceirasForm"
+      [formGroup]="aprovacaoMetasFinanceirasForm"
+    >
+      <ng-template [ngIf]="true" [ngIfElse]="aprovado">
+        <app-text-field-autosize-textarea-painel-meta
+          (notify)="getDadosObservacao($event)"
+        >
+        </app-text-field-autosize-textarea-painel-meta>
+        <mat-form-field [hidden]="true">
+          <input matInput formControlName="observacao" />
+        </mat-form-field>
+      </ng-template>
+      <ng-template #aprovado>
+        <mat-label>teste</mat-label>
+      </ng-template>
+      <div fxLayout="column" class="submit-zone">
+        <div fxFlex="40">
+          <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
+            <button
+              mat-button
+              class="btn-ebsa-secondary"
+              color="primary"
+              id="btnSalvarUsuario"
+              (click)="reprovarForm()"
+            >
+              Reprovar
+            </button>
+          </div>
+          <div fxFlex="20" fxFlex.sm="30" fxFlex.xs="50">
+            <button
+              mat-button
+              class="btn-ebsa-primary"
+              color="primary"
+              id="btnSalvarUsuario"
+              (click)="aprovarForm()"
+            >
+              Aprovar
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-card>
+</app-template>

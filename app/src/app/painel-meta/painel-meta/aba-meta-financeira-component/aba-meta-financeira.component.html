@@ -1,0 +1,19 @@
+<div class="app-component component-style">
+  <div>
+    <div class="component-tag">
+    </div>
+
+    <h1 class="text-center"> Metas Financeiras </h1>
+
+    <app-table-painel-meta [rota]="rota" [show]="show" [headers]='headers' [columns]='columns' [itens]='itens'
+    [customTitle]="'Gerentes'"></app-table-painel-meta>
+
+    <br>
+    <app-table-painel-meta [rota]="rota" [show]="show" [headers]='headers' [columns]='columns' [itens]='itens'
+    [customTitle]="'Supervisores'"></app-table-painel-meta>
+
+    <br>
+    <app-table-painel-meta [rota]="rota" [show]="show" [headers]='headers' [columns]='columns' [itens]='itens'
+    [customTitle]="'Consultores'"></app-table-painel-meta>
+  </div>
+</div>

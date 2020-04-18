@@ -1,0 +1,10 @@
+<div fxLayout='column' class="submit-zone">
+  <div fxFlex="100">
+    <mat-form-field class="textarea-aprovacao">
+      <mat-label>Observacão</mat-label>
+      <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="6" [(ngModel)]="teste" (change)="somethingChanged()"></textarea>
+    </mat-form-field>
+  </div>
+</div>
+<mat-divider></mat-divider>
